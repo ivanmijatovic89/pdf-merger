@@ -80,7 +80,8 @@ class PDFMerger
                     $template   = $fpdi->importPage($i);
                     $size       = $fpdi->getTemplateSize($template);
 
-                    $fpdi->AddPage('P', array($size['w'], $size['h']));
+                    //$fpdi->AddPage('P', array($size['w'], $size['h']));
+                    $fpdi->AddPage( $size['h'] > $size['w'] ? 'P' : 'L', array($size['w'], $size['h']));
                     $fpdi->useTemplate($template);
                 }
             } else {

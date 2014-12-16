@@ -25,3 +25,13 @@ $pdf->merge('file', 'samplepdfs/TEST2.pdf');
 
 // REPLACE 'file' WITH 'browser', 'download', 'string', or 'file' for output options
 ```
+## Changes
+
+I've just forked this package to make it compatible with composer
+
+I change  this line of code
+
+    $fpdi->AddPage('P', array($size['w'], $size['h']));
+to
+
+    $fpdi->AddPage( $size['h'] > $size['w'] ? 'P' : 'L', array($size['w'], $size['h']));
